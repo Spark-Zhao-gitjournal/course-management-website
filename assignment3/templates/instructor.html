@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, Instructor {{ current_user.username }}</h2>
+        
+        <!-- Display all students' grades -->
+        <h3>All Students' Grades:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Assignments</th>
+                    <th>Midterm Exam</th>
+                    <th>Labs</th>
+                    <th>Final Exam</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grades in student_grades %}
+                    <tr>
+                        <td>{{ grades.username }}</td>
+                        <td>{{ grades.assignment_grade }}</td>
+                        <td>{{ grades.midterm_exam_grade }}</td>
+                        <td>{{ grades.lab_grade }}</td>
+                        <td>{{ grades.final_exam_grade }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <!-- Display all anonymous feedback -->
+        <h3>All Anonymous Feedback:</h3>
+        <ul>
+            {% for feedback in instructor_feedback %}
+                <li>
+                    <strong>Teaching Likes:</strong> {{ feedback.teaching_likes }}<br>
+                    <strong>Teaching Improvements:</strong> {{ feedback.teaching_improvements }}<br>
+                    <strong>Lab Likes:</strong> {{ feedback.lab_likes }}<br>
+                    <strong>Lab Improvements:</strong> {{ feedback.lab_improvements }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+        
+        <h3>All Remark Requests:</h3>
+        <ul>
+            {% for remark_request in all_remark_requests %}
+                <li>
+                    <strong>Student:</strong> {{ remark_request.username }}
+                    <strong>Reason:</strong> {{ remark_request.reason }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h3>Enter Marks:</h3>
+        <form method="POST" action="{{ url_for('enter_marks') }}">
+            <div class="form-group">
+                <label for="student">Select Student:</label>
+                <select id="student" name="student">
+                    {% for student in all_students %}
+                        <option value="{{ student.id }}">{{ student.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="assignment">Assignment Grade:</label>
+                <input type="text" id="assignment" name="assignment">
+            </div>
+            <div class="form-group">
+                <label for="midterm_exam">Midterm Exam Grade:</label>
+                <input type="text" id="midterm_exam" name="midterm_exam">
+            </div>
+            <div class="form-group">
+                <label for="labs">Lab Grade:</label>
+                <input type="text" id="labs" name="labs">
+            </div>
+            <div class="form-group">
+                <label for="final_exam">Final Exam Grade:</label>
+                <input type="text" id="final_exam" name="final_exam">
+            </div>
+            <button type="submit">Submit Marks</button>
+        </form>
+        
+        <div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <a href="{{ url_for('index') }}">Go To Course Page</a>
+    </div>
+</body>
+</html>

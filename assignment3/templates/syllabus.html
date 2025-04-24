@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSCB20 - Syllabus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('courseteam') }}">CourseTeam</a></li>
+                <li><a href="{{ url_for('assignments') }}">Assignments</a></li>
+                <li><a href="{{ url_for('syllabus') }}">Syllabus</a></li>
+                <li><a href="{{ url_for('anonfeedback') }}">Anon Feedback</a></li>
+                <li><a href="{{ url_for('piazza') }}">Piazza</a></li>
+                <li><a href="{{ url_for('markus') }}">Markus</a></li>
+                <li><a href="{{ url_for('labs') }}">Labs</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="main-title">Syllabus</h1>
+        <section id="syllabus-pdf">
+            <h2> Lecture Notes </h2>
+            <ul>
+                <li><a href="{{ url_for('static', filename='Week 1.pdf') }}" target="_blank">Week 1 - Lecture Note</a></li>
+                <li><a href="{{ url_for('static', filename='Week 2.pdf') }}" target="_blank">Week 2 - Lecture Note</a></li>
+                <li><a href="{{ url_for('static', filename='Week 3.pdf') }}" target="_blank">Week 3 - Lecture Note</a></li>
+                <li><a href="{{ url_for('static', filename='Week 4.pdf') }}" target="_blank">Week 4 - Lecture Note</a></li>
+                <li><a href="{{ url_for('static', filename='Week 5.pdf') }}" target="_blank">Week 5 - Lecture Note</a></li>
+                <li><a href="{{ url_for('static', filename='Week 6.pdf') }}" target="_blank">Week 6 - Lecture Note</a></li>
+                <li><a href="{{ url_for('static', filename='Week 7.pdf') }}" target="_blank">Week 7 - Lecture Note</a></li>
+                <li><a href="{{ url_for('static', filename='Week 8.pdf') }}" target="_blank">Week 8 - Lecture Note</a></li>
+                <li><a href="{{ url_for('static', filename='Week 9.pdf') }}" target="_blank">Week 9 - Lecture Note</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p><a href="https://www.cs.toronto.edu/">Department of Computer Science at UofT</a></p>
+        <p>Site designed by David La</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piazza Link</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('courseteam') }}">CourseTeam</a></li>
+                <li><a href="{{ url_for('assignments') }}">Assignments</a></li>
+                <li><a href="{{ url_for('syllabus') }}">Syllabus</a></li>
+                <li><a href="{{ url_for('anonfeedback') }}">Anon Feedback</a></li>
+                <li><a href="{{ url_for('piazza') }}">Piazza</a></li>
+                <li><a href="{{ url_for('markus') }}">Markus</a></li>
+                <li><a href="{{ url_for('labs') }}">Labs</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="main-title">Piazza</h1>
+        <a href="https://piazza.com/utoronto.ca/winter2024/cscb20h3s" target="_blank">Piazza Link</a>
+    </main>
+    <footer>
+        <p><a href="https://www.cs.toronto.edu/">Department of Computer Science at UofT</a></p>
+        <p>Site designed by David La</p>
+    </footer>
+</body>
+</html>

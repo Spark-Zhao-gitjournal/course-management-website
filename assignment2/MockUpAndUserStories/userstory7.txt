@@ -1,0 +1,1 @@
+As a student user, I want to access the schedule of each TA's office hours when I visit the 'CourseTeam' page, so that I can plan my visit to discuss course-related queries with TAs.

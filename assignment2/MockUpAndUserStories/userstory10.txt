@@ -1,0 +1,1 @@
+As a student user, I want to access the Piazza link when I click on the 'Piazza' page, so that I can participate in discussions and access course-related resources on the Piazza platform.

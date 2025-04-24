@@ -1,0 +1,1 @@
+As a student user, I want to be able to input the title and content of feedback and submit it by clicking the 'Submit' button when I visit the 'Anonymous Feedback' page, so that I can provide anonymous feedback conveniently.

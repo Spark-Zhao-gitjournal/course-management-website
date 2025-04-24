@@ -1,0 +1,1 @@
+As a student user, I want to see the topics, weightage, and specific requirements for each of the three assignments when I click on the 'Assignments' page, so that I can understand what is expected for each assignment and plan accordingly.

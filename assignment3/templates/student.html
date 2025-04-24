@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, {{ current_user.username }}</h2>
+        
+        
+        <h3>Your Grades:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Exam/Assignment</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Assignments</td>
+                    <td>{{ student_grades.assignment_grade }}</td>
+                </tr>
+                <tr>
+                    <td>Midterm Exam</td>
+                    <td>{{ student_grades.midterm_exam_grade }}</td>
+                </tr>
+                <tr>
+                    <td>Labs</td>
+                    <td>{{ student_grades.lab_grade }}</td>
+                </tr>
+                <tr>
+                    <td>Final Exam</td>
+                    <td>{{ student_grades.final_exam_grade }}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <form method="POST" action="{{ url_for('submit_remark_request') }}">
+                            <input type="text" name="remark_reason" placeholder="Reason for remarking request">
+                            <button type="submit">Submit Remark Request</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+        <h3>Submit Anonymous Feedback</h3>
+        <form method="POST" action="{{ url_for('submit_feedback') }}">
+            <div class="form-group">
+                <label for="instructor">Select Instructor:</label>
+                <select id="instructor" name="instructor">
+                    {% for instructor in instructors %}
+                    <option value="{{ instructor.id }}">{{ instructor.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="teaching_likes">What do you like about the instructor teaching?</label>
+                <textarea id="teaching_likes" name="teaching_likes" rows="4" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="teaching_improvements">What do you recommend the instructor to do to improve their teaching?</label>
+                <textarea id="teaching_improvements" name="teaching_improvements" rows="4" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="lab_likes">What do you like about the labs?</label>
+                <textarea id="lab_likes" name="lab_likes" rows="4" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="lab_improvements">What do you recommend the lab instructors to do to improve their lab teaching?</label>
+                <textarea id="lab_improvements" name="lab_improvements" rows="4" cols="50"></textarea>
+            </div>
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+        <div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="flash">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <a href="{{ url_for('index') }}">Go To Course Page</a>
+    </div>
+</body>
+</html>

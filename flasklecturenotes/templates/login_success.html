@@ -1,0 +1,12 @@
+{% extends "template.html" %}
+{% block content %} 
+
+{% if session.name %}
+      You are Logged in as {{ session.name }}.
+   {% else %}
+      You are not logged in.
+{% endif %}
+  
+ <h1> Logged in successfully </h1>
+
+{% endblock %}

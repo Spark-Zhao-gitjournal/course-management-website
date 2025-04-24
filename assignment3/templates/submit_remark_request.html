@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Remark Request</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Submit Remark Request</h2>
+        <form method="POST" action="{{ url_for('submit_remark_request') }}">
+            <div class="form-group">
+                <label for="remark_reason">Reason for Remark Request:</label>
+                <textarea id="remark_reason" name="remark_reason" rows="4" cols="50"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

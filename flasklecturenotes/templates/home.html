@@ -1,0 +1,53 @@
+
+    {% extends "template.html" %}
+    {% block content %}
+    
+    
+   {% if session.name %}
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div> Welocme back <strong> {{ session.name }} </strong>! you are {{ message }} </div>
+          {% endfor %}
+        {% else %}
+        <div id="boxes">
+          <div id="dialog" class="window">
+            Welcome {{session.name }} to my B20 notes page!
+            If you wish to distribute 
+            or otherwise reproduce lecture presentations, course notes or 
+            other similar materials provided by instructors, 
+            they must obtain the instructor’s written consent beforehand. 
+            Otherwise all such reproduction is an infringement of copyright and is prohibited. 
+            In the case of private use by students with accommodation needs, 
+            the instructor’s consent will not be unreasonably withheld, but the student 
+            must have registered for the accommodation through Accessibility Services 
+            <div id="popupfoot"> 
+              <a href="#" class="close agree">I agree</a> | 
+              <a class="agree" style="color:red;" href="#">I do not agree</a> </div>
+          </div>
+          
+          <div id="mask"><button class="close">Close &#10006;</button></div>
+        </div>
+          <script type='text/javascript' src="{{url_for('static', filename='js/template.js')}}"></script>
+    
+          <h3> Welcome {{ session.name }} to B20 Lecture notes! </h3>
+          <p> Now you can add and view lecture notes </p>
+        {% endif %}
+      {% endwith %}
+
+   
+
+   {% else %}
+    <h1>This is my {{ pagename }} page</h1>
+    <p>
+      This web app contains the lecture notes collection for lectures 1 to 13
+    </p>
+    <p>
+      Please Register or Login to add notes for the lectures
+    </p>
+    
+    {% endif %}
+
+    <!-- <p> Value is: {{ agreement }} </p>Value is:  -->
+   
+      {% endblock %}

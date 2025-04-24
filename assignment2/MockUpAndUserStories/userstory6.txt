@@ -1,0 +1,1 @@
+As a student user, I want to see a timetable of TA tutorials when I navigate to the 'CourseTeam' page, so that I can easily access information about tutorial sessions provided by TAs.

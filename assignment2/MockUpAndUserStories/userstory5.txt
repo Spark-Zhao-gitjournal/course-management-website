@@ -1,0 +1,1 @@
+As a student user, I want to view the Course Description and Instructor information when I click on the 'Home' page, so that I can understand the overview of the course and know about the instructor's details.

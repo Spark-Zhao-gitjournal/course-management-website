@@ -1,0 +1,1 @@
+As a student user, when I click on the lab’s page on the CSCB20 website, a grid layout of all the labs must be shown.
